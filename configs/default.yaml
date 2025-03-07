@@ -1,0 +1,50 @@
+# Default configuration for fine-tuning Llama 3 8B on SocraticChat dataset
+
+# Project settings
+project_name: "Fine-tune Llama 3 8B on Socratic Chat Dataset"
+output_dir: "models/socratic-llama-3-8b"
+
+# Model settings
+model_name: "meta-llama/Meta-Llama-3-8B"
+attn_implementation: "flash_attention_2"
+
+# QLoRA settings
+load_in_4bit: true
+bnb_4bit_quant_type: "nf4"
+bnb_4bit_use_double_quant: true
+
+# LoRA settings
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_bias: "none"
+lora_target_modules:
+  - "up_proj"
+  - "down_proj"
+  - "gate_proj"
+  - "k_proj"
+  - "q_proj"
+  - "v_proj"
+  - "o_proj"
+
+# Training settings
+batch_size: 1
+gradient_accumulation_steps: 4
+learning_rate: 2.0e-4
+lr_scheduler_type: "cosine"
+warmup_ratio: 0.03
+max_steps: 100
+logging_steps: 10
+save_steps: 50
+save_total_limit: 3
+fp16: true
+report_to: "wandb"
+
+# Dataset settings
+dataset_name: "FreedomIntelligence/SocraticChat"
+sample_size: 500
+
+# Generation settings
+max_length: 512
+temperature: 0.7
+top_p: 0.9
