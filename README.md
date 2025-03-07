@@ -54,7 +54,17 @@ After training, you can use the fine-tuned model for inference:
 ```bash
 python src/inference.py --model_path path/to/saved/model
 ```
+## Web Interface
 
+### Running the Chat UI
+
+1. Install Streamlit:
+   ```bash
+   pip install streamlit
+2. Run app
+   ```bash
+   streamlit run src/app.py
+   
 ## Project Structure
 
 ```
