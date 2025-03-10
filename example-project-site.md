@@ -1,5 +1,5 @@
 ---
-title: My Awesome Project
+title: Socratic LLM
 description: This is a detailed description of my awesome project that will be displayed on my portfolio.
 technologies: ['React', 'TypeScript', 'Node.js', 'TailwindCSS']
 featured: true
